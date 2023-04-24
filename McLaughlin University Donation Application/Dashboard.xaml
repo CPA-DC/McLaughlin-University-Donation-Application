@@ -1,0 +1,523 @@
+﻿<Window x:Class="McLaughlin_University_Donation_Application.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:McLaughlin_University_Donation_Application"
+        mc:Ignorable="d"
+        Title="McLaughlin University Donation Manager Dashboard" Height="675" Width="1200" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Icon="images/mcl_un.png">
+    <Window.Background>
+        <LinearGradientBrush StartPoint=".5,0" EndPoint=".5,1">
+            <GradientStop Color="White" Offset="-0.5"/>
+            <GradientStop Color="#92B9E4" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Column 0 - Sidebar Controls #4472C4-->
+        <GroupBox Grid.RowSpan="6" BorderThickness="0" Background="#4472C4">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1.5*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Row 0 GroupBox -->
+                <!-- Dashboard/Home -->
+                <GroupBox BorderThickness="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Row 0 Controls empty for formatting -->
+
+                        <!-- Row 1 Controls -->
+                        <Button Content="Dashboard"
+                                Grid.Row="1"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Margin="10,0,0,0"
+                                FontFamily="Arial" FontSize="18"
+                                Foreground="White">
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!-- Row 1 Controls -->
+                        <Label Content="_________________________________"
+                               FontFamily="Arial" FontSize="18"
+                               Foreground="White"
+                               Grid.Row="2"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="0,0,0,0"/>
+                    </Grid>
+                </GroupBox>
+
+                <!-- Row 1 GroupBox -->
+                <!-- Profile: JobInfo, Messages, Job Info -->
+                <GroupBox Grid.Row="1" Grid.RowSpan="2" 
+                          BorderThickness="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="37*"/>
+                            <ColumnDefinition Width="17*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Row 0 Controls -->
+                        <Button Content="Profile"
+                                FontFamily="Arial"
+                                FontSize="16"
+                                Foreground="White"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+                            <Button.Template>
+                                <ControlTemplate 
+                                        TargetType="{x:Type Button}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!-- Row 1 Controls -->
+                        <Button Content="Job Info"
+                                Click="NavJobInfoClick"
+                                FontFamily="Arial" FontSize="18"
+                                Foreground="White"
+                                Grid.Row="1"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Margin="20,0,0,0">
+                            <Button.Template>
+                                <ControlTemplate 
+                                    TargetType="{x:Type Button}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!-- Row 2 Controls -->
+                        <Button Content="Targets"
+                                Click="NavTargetsClick"
+                                FontFamily="Arial" FontSize="18"
+                                Foreground="White"
+                                Grid.Row="2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Margin="20,0,0,0">
+                            <Button.Template>
+                                <ControlTemplate 
+                                    TargetType="{x:Type Button}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!-- Row 3 Controls -->
+                        <Button Content="Logout"
+                                Click="NavLogout"
+                                FontFamily="Arial" FontSize="18"
+                                Foreground="White"
+                                Grid.Row="3"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Margin="20,0,0,0">
+                            <Button.Template>
+                                <ControlTemplate 
+                                    TargetType="{x:Type Button}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!-- Row 4 Controls -->
+                        <Label Content="_________________________________"
+                               Grid.Column="0"
+                               FontFamily="Arial" FontSize="18"
+                               Foreground="White"
+                               Grid.Row="4"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Margin="18,0,0,0" 
+                               Grid.ColumnSpan="2"/>
+                    </Grid>
+                </GroupBox>
+
+                <!-- Row 2 GroupBox -->
+                <!-- Tracking: Donors, Pledges, Donations -->
+                <GroupBox Grid.Row="3" Grid.RowSpan="2" 
+                          BorderThickness="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Row 0 Controls -->
+                        <Button Content="Tracking"
+                                Click="TrackingClick"
+                                FontFamily="Arial" FontSize="16"
+                                Foreground="White"
+                                Grid.Row="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Margin="8,0,0,0">
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!-- Row 1 Controls -->
+                        <Button Content="Donors"
+                                Click="NavDonorsClick"
+                                FontFamily="Arial" FontSize="18"
+                                Foreground="White"
+                                Grid.Row="1"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Margin="20,9,0,0">
+                            <Button.Template>
+                                <ControlTemplate 
+                                    TargetType="{x:Type Button}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!-- Row 2 Controls -->
+                        <Button Content="Pledges"
+                                Click="NavPledgesClick"
+                                FontFamily="Arial" FontSize="18"
+                                Foreground="White"
+                                Grid.Row="2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Margin="20,0,0,0">
+                            <Button.Template>
+                                <ControlTemplate 
+                                    TargetType="{x:Type Button}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!-- Row 3 Controls -->
+                        <Button Content="Donations"
+                                Click="NavDonationsClick"
+                                FontFamily="Arial" FontSize="18"
+                                Foreground="White"
+                                Grid.Row="3"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Margin="20,0,0,0">
+                            <Button.Template>
+                                <ControlTemplate 
+                                    TargetType="{x:Type Button}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
+
+        <!-- Interface starts here -->
+        <!-- Row 0 Controls -->
+        <Label Content="Dashboard" 
+               Grid.Column="1" Grid.ColumnSpan="2"
+               Grid.Row="0" Grid.RowSpan="2"
+               HorizontalAlignment="Left" 
+               Margin="0,0,0,0" 
+               VerticalAlignment="Center" 
+               FontFamily="Arial" FontSize="40" FontWeight="Bold"
+               Foreground="#4472C4"/>
+
+        <!--<Button x:Name="buttonImportData" 
+                Content="Import Data" 
+                HorizontalAlignment="Left" 
+                Grid.Row="0"
+                Grid.Column="3"
+                Margin="4,4,10,4" 
+                Padding="4, 4"
+                VerticalAlignment="Bottom" 
+                ToolTip="Click to Import Data from McLaughlin University" 
+                FontFamily="Agency FB" FontSize="18" 
+                Foreground="White"  Background="#4472C4"
+                Width="124"
+                Click="ImportDataClick"/>-->
+
+        <Button x:Name="buttonGenerateReport" 
+                Content="Generate Report" 
+                HorizontalAlignment="Left" 
+                Grid.Row="0"
+                Grid.Column="4"
+                Margin="4,4,10,4" 
+                Padding="4, 4"
+                VerticalAlignment="Bottom" 
+                ToolTip="Click to view requests from McLaughlin University" 
+                FontFamily="Agency FB" FontSize="18" 
+                Foreground="White"  Background="#4472C4"
+                Width="124"
+                Click="GenerateReportClick"/>
+
+        <!-- Row 1 Controls -->
+        <Button x:Name="buttonContribution" 
+                Content="CONTRIBUTION" 
+                Click="ContributionClick"
+                Grid.Row="5"
+                Grid.Column="1"
+                Margin="239,23,0,0" 
+                Padding="4, 4"
+                VerticalAlignment="Top" 
+                HorizontalAlignment="Left"
+                ToolTip="Click to view chart on a monthly funding basis" 
+                FontFamily="Agency FB" FontSize="24" 
+                Foreground="DeepSkyBlue" Background="WhiteSmoke"
+                Width="175" Grid.ColumnSpan="2">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button x:Name="buttonVariety" 
+                Content="VARIETY" 
+                Click="VarietyClick"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Grid.Row="5"
+                Grid.Column="2"
+                Margin="239,23,0,0" 
+                Padding="4, 4"
+                ToolTip="Click to view chart on an annual funding context" 
+                FontFamily="Agency FB" FontSize="24" 
+                Foreground="#4472C4"  Background="WhiteSmoke"
+                Width="175" Grid.ColumnSpan="2" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <!--<Button x:Name="buttonTargets" 
+                Content="TARGETS" 
+                HorizontalAlignment="Left" 
+                Grid.Row="1"
+                Grid.Column="3"
+                Margin="4,4,10,10" 
+                Padding="4, 4"
+                VerticalAlignment="Bottom" 
+                ToolTip="Click to view... I don't know... targets?" 
+                FontFamily="Agency FB" FontSize="24" 
+                Foreground="Orange"  Background="WhiteSmoke"
+                Width="175"
+                Click="TargetsClick">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+        </Button>-->
+
+        <!-- Row 2 Controls -->
+        <GroupBox 
+            Grid.Row="1" Grid.RowSpan="5" 
+            Grid.Column="1" Grid.ColumnSpan="4" 
+            Background="WhiteSmoke" BorderThickness="0"
+            Margin="115,45,145,100">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="7.5*"/>
+                    <RowDefinition Height="1.5*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!-- GroupBox Row 0 -->
+                <Label x:Name="labelTitle"
+                       Content="Funding Overview (contribution by donor type)"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="0,0,0,0"
+                       FontFamily="Arial" FontSize="16" FontWeight="Bold" 
+                       Foreground="#4472C4"/>
+
+                <!-- GroupBox Row 1 -->
+                <!-- Chart Here -->
+                <Canvas
+                    x:Name="mainCanvas"
+                    Margin="1"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"/>
+
+                <!-- Labels here -->
+                <ScrollViewer Margin="10,0"
+                              Grid.Row="1"
+                              Grid.Column="0"
+                              Grid.ColumnSpan="3"
+                              Padding="10"
+                              VerticalAlignment="Center"
+                              VerticalScrollBarVisibility="Auto"
+                              HorizontalScrollBarVisibility="Hidden">
+                    <ItemsControl x:Name="detailsItemsControl">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type local:Donor_Type}">
+                                <StackPanel Orientation="Horizontal"
+                                            Margin="10">
+                                    <Rectangle Width="20"
+                                               Height="20"
+                                               Fill="{Binding ColorBrush}"
+                                               Margin="0,0,5,0"
+                                               VerticalAlignment="Center"/>
+
+                                    <TextBlock Text="{Binding Title}"
+                                               FontSize="20"
+                                               VerticalAlignment="Center"/>
+
+                                    <TextBlock Text="{Binding Percentage}"
+                                               Foreground="{Binding ColorBrush}"
+                                               FontSize="20"
+                                               Margin="20,0,0,0"
+                                               VerticalAlignment="Center"/>
+
+                                    <TextBlock Text="%"
+                                               Foreground="{Binding ColorBrush}"
+                                               FontSize="20"
+                                               VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+                <!-- GroupBox Row 2 -->
+                <Label x:Name="labelCorporation"
+                       Content="Corporations"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="0,0,0,0"
+                       FontFamily="Arial" FontSize="14" FontWeight="Bold" 
+                       Foreground="#333"/>
+                <Label x:Name="labelCorporation2"
+                       Content="null"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Top"
+                       Margin="0,0,50,0"
+                       FontFamily="Arial" FontSize="14" FontWeight="Bold" 
+                       Foreground="#333"/>
+
+                <Label x:Name="labelFoundation"
+                       Content="Foundations"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="0,0,0,0"
+                       FontFamily="Arial" FontSize="14" FontWeight="Bold" 
+                       Foreground="#333"/>
+                <Label x:Name="labelFoundation2"
+                       Content="null"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,0,50,0"
+                       FontFamily="Arial" FontSize="14" FontWeight="Bold" 
+                       Foreground="#333"/>
+
+                <Label x:Name="labelIndividual"
+                       Content="Individuals"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       Margin="0,0,0,0"
+                       FontFamily="Arial" FontSize="14" FontWeight="Bold" 
+                       Foreground="#333"/>
+                <Label x:Name="labelIndividual2"
+                       Content="null"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom"
+                       Margin="0,0,50,0"
+                       FontFamily="Arial" FontSize="14" FontWeight="Bold" 
+                       Foreground="#333"/>
+
+
+            </Grid>
+        </GroupBox>
+
+        <!-- Row 4 Controls -->
+        <!-- ComboBox for Pie Chart -->
+        <!--<ComboBox x:Name="comboBoxPie"
+                  Grid.Row="5"
+                  Grid.Column="4"
+                  Margin="60, 30, 60, 35" 
+                  FontFamily="Calibri"  FontSize="24"
+                  Foreground="#595959"
+                  Background="WhiteSmoke"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center">
+            <ComboBoxItem IsSelected="True">Source</ComboBoxItem>
+            <ComboBoxItem>Program</ComboBoxItem>
+        </ComboBox>-->
+
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,175 @@
+﻿<Window x:Class="McLaughlin_University_Donation_Application.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:McLaughlin_University_Donation_Application"
+        mc:Ignorable="d"
+        Title="McLaughlin University Donation Manager" Height="675" Width="1200" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Icon="images/mcl_un.png">
+    <Window.Background>
+        <LinearGradientBrush StartPoint=".5,0" EndPoint=".5,1">
+            <GradientStop Color="White" Offset="-0.5"/>
+            <GradientStop Color="#92B9E4" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <!--TODO: Add Icon-->
+    <!--Grid column/row definitions-->
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!-- Row 0 Controls -->
+        <Label Content="McLaughlin University Donation Manager" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center" 
+               Grid.ColumnSpan="3"
+               VerticalContentAlignment="Center"
+               Grid.Column="1" 
+               FontFamily="Arial" FontSize="24"/>
+
+        <!-- Row 1 Controls -->
+
+
+
+        <GroupBox 
+            Grid.Row="2" Grid.RowSpan="3" 
+            Grid.Column="1" Grid.ColumnSpan="3" 
+            Background="WhiteSmoke" BorderThickness="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1.5*"/>
+                </Grid.RowDefinitions>
+
+                <!-- GroupBox Row 0 -->
+                <Label Content="User ID:" 
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="0,0,0,0"
+                       FontFamily="Arial" FontSize="14"/>
+
+                <!-- GroupBox Row 1 -->
+                <TextBox x:Name="textBoxUsername" 
+                         Margin="5,0,5,0" 
+                         Grid.Row="1" 
+                         VerticalAlignment="Center" 
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center"
+                         ToolTip="Enter your username." 
+                         TabIndex="5" 
+                         FontFamily="Arial" Height="30" FontSize="14"
+                         >
+                    <TextBox.Background>
+                        <LinearGradientBrush StartPoint=".5,0" EndPoint=".5,1">
+                            <GradientStop Color="White" Offset="-1"/>
+                            <GradientStop Color="#92B9E4" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+
+                <!-- GroupBox Row 2 -->
+                <Label Content="Password:" 
+                       Grid.Row="2"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="0,0,0,0"
+                       FontFamily="Arial" FontSize="14"/>
+
+                <!-- GroupBox Row 3 -->
+                <PasswordBox x:Name="textBoxPassword" 
+                         Margin="5,0,5,0" 
+                         Grid.Row="3" 
+                         VerticalAlignment="Center" 
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center"
+                         ToolTip="Enter your password." 
+                         TabIndex="5" 
+                         FontFamily="Arial" Height="30" FontSize="14"
+                         Background="White" Foreground="#92B9E4" 
+                         MaxLength="25" PasswordChar="*"/>
+
+                <!-- GroupBox Row 4 -->
+                <Button x:Name="buttonSubmit" 
+                        Content="_SUBMIT" 
+                        HorizontalAlignment="Stretch" 
+                        Grid.Row="4"
+                        Width="100"
+                        Margin="8,4,8,4" 
+                        Padding="0, 4"
+                        VerticalAlignment="Center" 
+                        ToolTip="Click to submit login details" 
+                        IsDefault="True" 
+                        TabIndex="9" 
+                        FontFamily="Agency FB" FontSize="24" Foreground="White" 
+                        BorderBrush="#8CBE74"
+                        Click="SubmitClick">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint=".5,0" EndPoint=".5,1">
+                            <GradientStop Color="White" Offset="-0.5"/>
+                            <GradientStop Color="#9ECB89"  Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+            </Grid>
+        </GroupBox>
+        <Label Content="Login" 
+               Grid.Column="2" 
+               Grid.Row="1"
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center" FontFamily="Arial" FontSize="48"/>
+        <Image  
+            Source="./images/mclaugh.png"
+            Height="100" 
+            Margin="20,0,20,0" 
+            Grid.Row="5"
+            Grid.Column="0"
+            Width="200"
+            VerticalAlignment="Center" 
+            />
+
+        <TextBox 
+            x:Name="labelDisclaimer"
+            Text="***Disclaimer: Any assets, data, and material used in this application are for educational purposes only and are not for profit. This application is not for sale."
+            Grid.Row="5"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            IsReadOnly="True" MinLines="2" MaxLines="2"
+            Width="600"
+            TextWrapping="Wrap"
+            HorizontalContentAlignment="Center"
+        />
+
+        <Image  
+            Source="./images/durham.png"
+
+            Height="100" 
+            Margin="20,0,20,0" 
+            Grid.Row="5"
+            Grid.Column="4"
+            Width="200"
+            VerticalAlignment="Center" 
+            ToolTip="This is invisible" Grid.ColumnSpan="2"
+        />
+    </Grid>
+</Window>
